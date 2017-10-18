@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class CheckList extends Component {
     render() {
         let tasks = this.props.tasks.map((task) => (
-            <li className="checklist_task">
+            <li key={task.id} className="checklist_task">
                 <input type="checkbox" defaultChecked={task.done} />
                     {task.name}
                 <a href="#" className="checklist_task--remove" />
@@ -18,6 +19,11 @@ class CheckList extends Component {
             </div>
         );
     }
+};
+
+CheckList.propTypes = {
+    cardId: PropTypes.number,
+    tasks: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default CheckList;
