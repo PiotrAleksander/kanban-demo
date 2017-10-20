@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import KanbanBoard from './KanbanBoard';
+import KanbanBoardContainer from './KanbanBoardContainer';
 import ContactsAppContainer from './Contacts/ContactsAppContainer';
 import './index.css';
 
@@ -48,5 +48,5 @@ let contacts = [
   { name: "Sebastian Markbage", email: "sebmarkbage@here.com" },
 ];
 
-ReactDOM.render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
+ReactDOM.render(<KanbanBoardContainer />, document.getElementById('root'));
 ReactDOM.render(<ContactsAppContainer />, document.getElementById('contactsApp'));
