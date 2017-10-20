@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import update from 'react-addons-update';
 import KanbanBoard from './KanbanBoard';
-import 'whatwg-fetch';
 import 'babel-polyfill';
+import 'whatwg-fetch';
 
 const API_URL = 'http://kanbanapi.pro-react.com';
 const API_HEADERS = {
@@ -30,7 +31,7 @@ class KanbanBoardContainer extends Component {
 
     addTask(cardId, taskName) {
         let prevState = this.state;
-        let cardIndex = this.state.cards.findIndex((card) => caard.id == cardId);
+        let cardIndex = this.state.cards.findIndex((card) => card.id == cardId);
         let newTask = {id: Date.now(), name: taskName, done: false};
         let nextState = update(this.state.cards, {
             [cardIndex]: {
@@ -66,25 +67,23 @@ class KanbanBoardContainer extends Component {
 
         let nextState = update(this.state.cards, {
             [cardIndex]: {
-                tasks: {$splice: [[taskIndex, 1]] }
+                tasks: { $splice: [[taskIndex, 1]] }
             }
         });
-
-        this.setState({cards: nextState});
-
+        this.setState({ cards: nextState });
         fetch(`${API_URL}/cards/${cardId}/tasks/${taskId}`, {
             method: 'delete',
             headers: API_HEADERS
         })
-        .then((reponse) => {
-            if(!reponse.ok) {
-                throw new Error("Server response wasn't OK")
-            }
-        })
-        .catch((error) => {
-            console.error("Fetch error: ", error)
-            this.setState(prevState)
-        }
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Server response wasn't OK")
+                }
+            })
+            .catch((error) => {
+                console.error("Fetch error:", error)
+                this.setState(prevState);
+            });
     }
 
     toggleTask(cardId, taskId, taskIndex) {

@@ -97,3 +97,22 @@ ul {
   margin-top: 5px;
   border-radius: 3px;
 }
+
+.sidebar {
+  background-color: #eee;
+  box-shadow: 1px 0 3px #888888;
+  position: absolute;
+  width: 15rem;
+  height: 100%;
+}
+
+.sidebar-transition {
+  opacity: 0;
+  left: -15rem;
+}
+
+.sidebar-transition-active {
+  opacity: 1;
+  left: 9;
+  transition: ease-in-out 0.5s;
+}
