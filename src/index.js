@@ -49,4 +49,4 @@ let contacts = [
 ];
 
 ReactDOM.render(<KanbanBoardContainer />, document.getElementById('root'));
-ReactDOM.render(<ContactsAppContainer />, document.getElementById('contactsApp'));
+// ReactDOM.render(<ContactsAppContainer />, document.getElementById('contactsApp'));
