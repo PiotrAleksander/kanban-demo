@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, PropTypes } from 'react';
 import { DropTarget } from 'react-dnd';
 import Card from './Card';
 import constants from '../constants';
@@ -7,8 +6,8 @@ import CardActionCreators from '../actions/CardActionCreators';
 
 const listTargetSpec = {
   hover(props, monitor) {
-    const draggedId = monitor.getItem();
-    CardActionCreators.updateCardStatus(draggedId, props.id)
+    const dragged = monitor.getItem();
+    CardActionCreators.updateCardStatus(dragged.id, props.id);
   }
 };
 
@@ -35,7 +34,6 @@ class List extends Component {
   }
 };
 List.propTypes = {
-  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(PropTypes.object),
   connectDropTarget: PropTypes.func.isRequired

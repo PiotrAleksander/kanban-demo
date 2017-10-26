@@ -26,16 +26,17 @@ const cardDragSpec = {
     };
   },
   endDrag(props) {
-    CardActionCreators.persistCardDrag(props.id, props.status);
+    CardActionCreators.persistCardDrag(props);
   }
 }
 
 const cardDropSpec = {
   hover(props, monitor) {
     const draggedId = monitor.getItem().id;
-    if (props.id !== draggedId) {
+    if(props.id !== draggedId){
       CardActionCreators.updateCardPosition(draggedId, props.id);
     }
+
   }
 }
 
@@ -66,8 +67,7 @@ class Card extends Component {
         <div className="card__details">
           <span dangerouslySetInnerHTML={{__html:marked(this.props.description)}} />
             <CheckList cardId={this.props.id}
-                       tasks={this.props.tasks}
-                       taskCallbacks={this.props.taskCallbacks} />
+                       tasks={this.props.tasks}/>
         </div>
       );
     }
@@ -87,7 +87,7 @@ class Card extends Component {
         <div style={sideColor} />
         <div className="card__edit"><Link to={'/edit/'+this.props.id}>✎</Link></div>
         <div className={
-            this.props.showDetails !== false ? "card__title card__title--is-open" : "card__title"
+            this.props.showDetails !== false? "card__title card__title--is-open" : "card__title"
           } onClick={this.toggleDetails.bind(this)}>
           {this.props.title}
         </div>
@@ -100,7 +100,6 @@ class Card extends Component {
     ));
   }
 }
-
 Card.propTypes = {
   id: PropTypes.number,
   title: titlePropType,
