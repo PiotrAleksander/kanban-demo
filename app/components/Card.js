@@ -2,11 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import marked from 'marked';
 import { DragSource, DropTarget } from 'react-dnd';
-import {Link} from 'react-router';
-import shallowCompare from 'react-addons-shallow-compare';
-import CheckList from './CheckList';
-import CardActionCreators from '../actions/CardActionCreators';
 import constants from '../constants';
+import CheckList from './CheckList';
+import {Link} from 'react-router';
+import CardActionCreators from '../actions/CardActionCreators';
+import shallowCompare from 'react-addons-shallow-compare';
 
 let titlePropType = (props, propName, componentName) => {
   if (props[propName]) {
@@ -105,7 +105,7 @@ class Card extends Component {
   }
 }
 Card.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   title: titlePropType,
   description: PropTypes.string,
   color: PropTypes.string,

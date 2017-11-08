@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 import 'babel-polyfill';
 
-const API_URL = 'http://kanbanapi.pro-react.com';
+const API_URL = 'http://localhost:3000/api';
 const API_HEADERS = {
   'Content-Type': 'application/json',
   /*
@@ -9,7 +9,7 @@ const API_HEADERS = {
    * your middle name, your favorite animal, your superpower of choice...
    * An unique authorization will allow you to have your own environment for cards and tasks
    */
-  Authorization: 'stringIlike'
+  Authorization: 'Bearer'
 }
 
 let KanbanAPI = {
@@ -21,7 +21,6 @@ let KanbanAPI = {
   addCard(card) {
     return fetch(`${API_URL}/cards`, {
       method: 'post',
-      headers: API_HEADERS,
       body: JSON.stringify(card)
     })
     .then((response) => response.json())
