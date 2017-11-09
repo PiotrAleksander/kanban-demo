@@ -6,11 +6,18 @@ import update from 'react-addons-update';
 let defaultDraft = () => {
   return {
     id: Date.now(),
-    title:'',
-    description:'',
-    status:'todo',
+    amount: 0,
+    name:'',
+    surname:'',
+    telephone:'',
+    email:'',
+    nip:'',
+    comments:'',
+    status:'registration',
     color:'#c9c9c9',
-    tasks:[]
+    tasks:[],
+    advisor: '',
+    showDetails: false
   }
 };
 

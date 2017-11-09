@@ -29,6 +29,7 @@
     "react-dnd-html5-backend": "^2.1.2",
     "react-dom": "^15.0.0",
     "react-router": "^1.0.0",
+    "simplebar": "^2.5.0",
     "whatwg-fetch": "^0.11.0"
   }
 }

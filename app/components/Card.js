@@ -69,7 +69,7 @@ class Card extends Component {
     if (this.props.showDetails !== false) {
       cardDetails = (
         <div className="card__details">
-          <span dangerouslySetInnerHTML={{__html:marked(this.props.description)}} />
+          <span dangerouslySetInnerHTML={{__html:marked(this.props.comments)}} />
             <CheckList cardId={this.props.id}
                        tasks={this.props.tasks}/>
         </div>
@@ -91,9 +91,9 @@ class Card extends Component {
         <div style={sideColor} />
         <div className="card__edit"><Link to={'/edit/'+this.props.id}>✎</Link></div>
         <div className={
-            this.props.showDetails !== false? "card__title card__title--is-open" : "card__title"
+            this.props.showDetails !== false ? "card__title card__title--is-open" : "card__title"
           } onClick={this.toggleDetails.bind(this)}>
-          {this.props.title}
+          {this.props.name + ' ' + this.props.surname}
         </div>
         <ReactCSSTransitionGroup transitionName="toggle"
                                  transitionEnterTimeout={250}
@@ -105,11 +105,21 @@ class Card extends Component {
   }
 }
 Card.propTypes = {
-  id: PropTypes.string,
-  title: titlePropType,
-  description: PropTypes.string,
+  id: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  //title: titlePropType,
+  amount: PropTypes.number,
+  name: PropTypes.string,
+  surname: PropTypes.string,
+  telephone: PropTypes.string,
+  email: PropTypes.string,
+  nip: PropTypes.string,
   color: PropTypes.string,
   tasks: PropTypes.arrayOf(PropTypes.object),
+  comments: PropTypes.string,
+  advisor: PropTypes.string,
   connectDragSource: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired
 };
