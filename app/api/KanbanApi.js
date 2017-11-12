@@ -9,7 +9,7 @@ const API_HEADERS = {
    * your middle name, your favorite animal, your superpower of choice...
    * An unique authorization will allow you to have your own environment for leads and tasks
    */
-  Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjU5ZmM1Nzc5YjI5Y2EyMzczYzI2NzZkOSIsInVzZXJuYW1lIjoibXJ6eWdsb3N6Iiwic2NvcGUiOiJhZG1pbiIsImlhdCI6MTUxMDUxMTk1NywiZXhwIjoxNTEwNTE1NTU3fQ.r5GMnXsJeoapRNqZaPrP8gLnPF3F9OtTlfBaRntBxiI'
+  Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjU5ZmM1Nzc5YjI5Y2EyMzczYzI2NzZkOSIsInVzZXJuYW1lIjoibXJ6eWdsb3N6Iiwic2NvcGUiOiJhZG1pbiIsImlhdCI6MTUxMDUyMzE3NywiZXhwIjoxNTEwNTI2Nzc3fQ.SYZlcbJP1AApAYNQGJde8bvQ22ONQZRJnMrGK_DKKI4'
 }
 
 let KanbanAPI = {

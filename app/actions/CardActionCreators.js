@@ -20,6 +20,13 @@ let CardActionCreators = {
       payload: {cardId}
     });
   },
+  
+  toggleRemove(cardId) {
+    AppDispatcher.dispatch({
+      type: constants.TOGGLE_CARD_REMOVE,
+      payload: {cardId}
+    });
+  },
 
 
   addCard(card) {
@@ -38,12 +45,12 @@ let CardActionCreators = {
     }, {card, draftCard});
   },
   
-  deleteCard(cardId) {
+  deleteCard(cardId, cardRemoved) {
     AppDispatcher.dispatchAsync(KanbanAPI.deleteCard(cardId), {
       request: constants.DELETE_CARD,
       success: constants.DELETE_CARD_SUCCESS,
       failure: constants.DELETE_CARD_ERROR
-    }, {cardId});
+    }, {cardId, cardRemoved});
   },
 
   updateCardStatus: throttle((cardId, listId) => {

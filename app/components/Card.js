@@ -87,9 +87,11 @@ class Card extends Component {
     };
 
     return connectDropTarget(connectDragSource(
-      <div className="card">
+      <div className={
+        this.props.cardRemoved !== true ? "card" : "card__removed"
+      }>
         <div style={sideColor} />
-        <div className="card__delete" onClick={ CardActionCreators.deleteCard.bind(null, this.props.id) }>&#10060;</div>
+        <div className="card__delete" onClick={CardActionCreators.deleteCard.bind(null, this.props.id, this.props.cardRemoved) }>&#10060;</div>
         <div className="card__edit"><Link to={'/edit/'+this.props.id}>✎</Link></div>
         <div className={
             this.props.showDetails !== false ? "card__title card__title--is-open" : "card__title"

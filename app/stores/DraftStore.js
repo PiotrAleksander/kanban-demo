@@ -16,7 +16,8 @@ let defaultDraft = () => {
     color:'#c9c9c9',
     tasks:[],
     advisor: '',
-    showDetails: false
+    showDetails: false,
+    cardRemoved: false
   }
 };
 
