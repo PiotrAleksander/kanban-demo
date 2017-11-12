@@ -36,7 +36,10 @@ class CheckList extends Component {
   }
 }
 CheckList.propTypes = {
-  cardId: PropTypes.number,
+  cardId: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   tasks: PropTypes.arrayOf(PropTypes.object)
 };
 export default CheckList;
