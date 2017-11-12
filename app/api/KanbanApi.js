@@ -9,11 +9,7 @@ const API_HEADERS = {
    * your middle name, your favorite animal, your superpower of choice...
    * An unique authorization will allow you to have your own environment for leads and tasks
    */
-<<<<<<< HEAD
-  Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjU5ZmM1Nzc5YjI5Y2EyMzczYzI2NzZkOSIsInVzZXJuYW1lIjoibXJ6eWdsb3N6Iiwic2NvcGUiOiJhZG1pbiIsImlhdCI6MTUxMDA5MTU1NSwiZXhwIjoxNTEwMDk1MTU1fQ.8LsimaSk_zEgVF7XE3cQxggIBktl2slBsXLxDeo36P8'
-=======
-  Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVhMDAxNjQ3NGM2MWMyMWVkNDE5ZGRlNSIsInVzZXJuYW1lIjoicGlvdHJlbCIsInNjb3BlIjoiYWRtaW4iLCJpYXQiOjE1MTAyMzM1MjksImV4cCI6MTUxMDIzNzEyOX0.zRyx4Z505bgu5egxomRkm7WVYusv8oJVmkn4kQkSaqk'
->>>>>>> bb0e0ff9a9a2725b8376b9144820fd6addb0b49e
+  Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjU5ZmM1Nzc5YjI5Y2EyMzczYzI2NzZkOSIsInVzZXJuYW1lIjoibXJ6eWdsb3N6Iiwic2NvcGUiOiJhZG1pbiIsImlhdCI6MTUxMDUxMTk1NywiZXhwIjoxNTEwNTE1NTU3fQ.r5GMnXsJeoapRNqZaPrP8gLnPF3F9OtTlfBaRntBxiI'
 }
 
 let KanbanAPI = {
@@ -28,6 +24,13 @@ let KanbanAPI = {
       body: JSON.stringify(card)
     })
       .then((response) => response.json())
+  },
+  
+  deleteCard(cardId) {
+    return fetch(`${API_URL}/leads/${cardId}`, {
+      method: 'delete',
+      headers: API_HEADERS
+    })
   },
 
   updateCard(card, draftCard) {

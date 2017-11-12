@@ -37,6 +37,14 @@ let CardActionCreators = {
       failure: constants.UPDATE_CARD_ERROR
     }, {card, draftCard});
   },
+  
+  deleteCard(cardId) {
+    AppDispatcher.dispatchAsync(KanbanAPI.deleteCard(cardId), {
+      request: constants.DELETE_CARD,
+      success: constants.DELETE_CARD_SUCCESS,
+      failure: constants.DELETE_CARD_ERROR
+    }, {cardId});
+  },
 
   updateCardStatus: throttle((cardId, listId) => {
     AppDispatcher.dispatch({

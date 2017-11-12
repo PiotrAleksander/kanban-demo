@@ -70,8 +70,8 @@ class Card extends Component {
       cardDetails = (
         <div className="card__details">
           <span dangerouslySetInnerHTML={{__html:marked(this.props.comments)}} />
-            <CheckList cardId={this.props.id}
-                       tasks={this.props.tasks}/>
+            {/* <CheckList cardId={this.props.id}
+                       tasks={this.props.tasks}/> */}
         </div>
       );
     }
@@ -89,11 +89,12 @@ class Card extends Component {
     return connectDropTarget(connectDragSource(
       <div className="card">
         <div style={sideColor} />
+        <div className="card__delete" onClick={ CardActionCreators.deleteCard.bind(null, this.props.id) }>&#10060;</div>
         <div className="card__edit"><Link to={'/edit/'+this.props.id}>✎</Link></div>
         <div className={
             this.props.showDetails !== false ? "card__title card__title--is-open" : "card__title"
           } onClick={this.toggleDetails.bind(this)}>
-          {this.props.name + ' ' + this.props.surname}
+          {this.props.company}
         </div>
         <ReactCSSTransitionGroup transitionName="toggle"
                                  transitionEnterTimeout={250}
@@ -109,10 +110,8 @@ Card.propTypes = {
     PropTypes.string,
     PropTypes.number
   ]),
-  //title: titlePropType,
   amount: PropTypes.number,
-  name: PropTypes.string,
-  surname: PropTypes.string,
+  company: PropTypes.string,
   telephone: PropTypes.string,
   email: PropTypes.string,
   nip: PropTypes.string,

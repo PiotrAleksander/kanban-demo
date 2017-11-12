@@ -15,6 +15,10 @@ export default {
   UPDATE_CARD_SUCCESS: 'update card success',
   UPDATE_CARD_ERROR: 'update card error',
 
+  DELETE_CARD: 'delete card',
+  DELETE_CARD_SUCCESS: 'delete card success',
+  DELETE_CARD_ERROR: 'delete card error',
+
   UPDATE_CARD_STATUS: 'update card status',
 
   UPDATE_CARD_POSITION: 'update card position',

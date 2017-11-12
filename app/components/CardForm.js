@@ -17,16 +17,11 @@ class CardForm extends Component {
         <div className="card big">
           <form onSubmit={this.props.handleSubmit.bind(this)}>
   	        <input type='text'
-                   value={this.props.draftCard.name}
-                   onChange={this.handleChange.bind(this,'name')}
-                   placeholder="Imię"
+                   value={this.props.draftCard.company}
+                   onChange={this.handleChange.bind(this,'company')}
+                   placeholder="Firma"
                    required={true}
                    autoFocus={true} /><br />
-  	        <input type='text'
-                   value={this.props.draftCard.surname}
-                   onChange={this.handleChange.bind(this,'surname')}
-                   placeholder="Nazwisko"
-                   required={true} /><br />
   	        <input type='text'
                    value={this.props.draftCard.telephone}
                    onChange={this.handleChange.bind(this,'telephone')}
@@ -41,14 +36,12 @@ class CardForm extends Component {
                    pattern="[0-9]{10}" /><br />
             <textarea value={this.props.draftCard.comments}
                       onChange={this.handleChange.bind(this,'comments')}
-                      placeholder="Komentarze"
-                      required={true} /><br />
+                      placeholder="Komentarze" /><br />
   	        <input type='email'
                    value={this.props.draftCard.advisor}
                    onChange={this.handleChange.bind(this,'advisor')}
-                   placeholder="NIP"
+                   placeholder="Doradca"
                    required={true} /><br />
-            <label htmlFor="status">Status</label>
             <select id="status"
                     value={this.props.draftCard.status}
                     onChange={this.handleChange.bind(this,'status')}>
@@ -58,13 +51,6 @@ class CardForm extends Component {
               <option value="settlement">Umowa</option>
               <option value="payment">Wypłata</option>
             </select>
-            <br />
-            <label htmlFor="color">Color</label>
-            <input id="color"
-                   value={this.props.draftCard.color}
-                   onChange={this.handleChange.bind(this,'color')}
-                   type="color"
-                   defaultValue="#ff0000" />
 
             <div className='actions'>
               <button type="submit">{this.props.buttonLabel}</button>
@@ -82,11 +68,10 @@ CardForm.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
   draftCard: PropTypes.shape({
     amount: PropTypes.number,
-    name: PropTypes.string,
-    surname: PropTypes.string,
-    telephone: PropTypes.number,
+    company: PropTypes.string,
+    telephone: PropTypes.string,
     email: PropTypes.email,
-    nip: PropTypes.number,
+    nip: PropTypes.string,
     status: PropTypes.string,
     color: PropTypes.string,
     comments: PropTypes.string,

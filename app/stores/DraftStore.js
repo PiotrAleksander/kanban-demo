@@ -7,8 +7,7 @@ let defaultDraft = () => {
   return {
     id: Date.now(),
     amount: 0,
-    name:'',
-    surname:'',
+    company:'',
     telephone:'',
     email:'',
     nip:'',

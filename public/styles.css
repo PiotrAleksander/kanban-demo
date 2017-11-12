@@ -36,7 +36,7 @@ ul {
   vertical-align: top;
   white-space: normal;
   height: 100%;
-  width: 33%;
+  width: 20%;
   padding: 0 20px;
   overflow: auto;
 }
@@ -81,8 +81,8 @@ ul {
 
 .card.big {
   position: absolute;
-  width: 450px;
-  height: 200px;
+  width: 900px;
+  height: 300px;
   margin: auto;
   padding: 15px;
   top: 0; left: 0; bottom: 100px; right: 0;
@@ -101,6 +101,15 @@ ul {
   font-weight: bold;
 }
 
+.card.big input[type=email] {
+  width : 50%;
+  margin: 3px 0;
+  font-size: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: none;
+}
+
 .card.big input[type=text]:focus,
 .card.big textarea:focus {
   outline: dashed thin #999;
@@ -111,7 +120,6 @@ ul {
   margin: 3px 0 7px 3px;
   color: #a7a7a7;
   display: inline-block;
-  width: 60px;
 }
 
 .actions {
@@ -137,6 +145,24 @@ ul {
 }
 
 .card__edit a{
+  text-decoration: none;
+  color: #999;
+  font-size: 17px;
+}
+
+.card__delete{
+  position: absolute;
+  top:10px;
+  right: 30px;
+  opacity: 0;
+  transition: opacity .25s ease-in;
+}
+
+.card:hover .card__delete{
+  opacity: 1;
+}
+
+.card__delete a{
   text-decoration: none;
   color: #999;
   font-size: 17px;

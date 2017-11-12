@@ -21,6 +21,7 @@
     "flux": "^2.1.1",
     "history": "^1.13.0",
     "marked": "^0.3.5",
+    "material-ui": "^0.19.4",
     "react": "^15.0.0",
     "react-addons-css-transition-group": "^15.0.0",
     "react-addons-shallow-compare": "^15.0.0",
