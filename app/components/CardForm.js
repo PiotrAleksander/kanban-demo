@@ -17,17 +17,17 @@ class CardForm extends Component {
         <div className="card big">
           <form onSubmit={this.props.handleSubmit.bind(this)}>
   	        <input type='number'
-                   min="1000"
+                   min={1000}
                    value={this.props.draftCard.amount}
                    onChange={this.handleChange.bind(this,'amount')}
                    placeholder="Kwota"
-                   required={true}
-                   autoFocus={true} /><br />
+                   required={true} /><br />
   	        <input type='text'
                    value={this.props.draftCard.company}
                    onChange={this.handleChange.bind(this,'company')}
                    placeholder="Firma"
-                   required={true} /><br />
+                   required={true}
+                   autoFocus={true} /><br />
   	        <input type='text'
                    value={this.props.draftCard.telephone}
                    onChange={this.handleChange.bind(this,'telephone')}
@@ -78,14 +78,16 @@ class CardForm extends Component {
 CardForm.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
   draftCard: PropTypes.shape({
-    amount: PropTypes.number,
+    amount: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
     company: PropTypes.string,
     telephone: PropTypes.string,
     email: PropTypes.email,
     nip: PropTypes.string,
     status: PropTypes.string,
     color: PropTypes.string,
-    comments: PropTypes.string,
     advisor: PropTypes.email
   }).isRequired,
   handleChange: PropTypes.func.isRequired,

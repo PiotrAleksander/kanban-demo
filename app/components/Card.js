@@ -69,7 +69,7 @@ class Card extends Component {
     if (this.props.showDetails !== false) {
       cardDetails = (
         <div className="card__details">
-          <span dangerouslySetInnerHTML={{__html:marked(this.props.comments)}} />
+          {this.props.comments}
             {/* <CheckList cardId={this.props.id}
                        tasks={this.props.tasks}/> */}
         </div>
@@ -112,14 +112,16 @@ Card.propTypes = {
     PropTypes.string,
     PropTypes.number
   ]),
-  amount: PropTypes.number,
+  amount: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   company: PropTypes.string,
   telephone: PropTypes.string,
   email: PropTypes.string,
   nip: PropTypes.string,
   color: PropTypes.string,
   tasks: PropTypes.arrayOf(PropTypes.object),
-  comments: PropTypes.string,
   advisor: PropTypes.string,
   connectDragSource: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired
