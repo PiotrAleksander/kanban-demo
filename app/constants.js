@@ -1,6 +1,12 @@
 export default {
   CARD: 'card',
 
+  USER_LOGIN: 'user login',
+  USER_LOGIN_SUCCESS: 'user login success',
+  USER_LOGIN_ERROR: 'user login error',
+
+  USER_LOGOUT: 'user logout',
+
   FETCH_CARDS: 'fetch cards',
   FETCH_CARDS_SUCCESS: 'fetch cards success',
   FETCH_CARDS_ERROR: 'fetch cards error',
