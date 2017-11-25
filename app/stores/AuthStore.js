@@ -68,4 +68,5 @@ class AuthStore extends ReduceStore {
         return JSON.parse(atob(this.jwt.split('.')[1]));
     }
 }
-export default new AuthStore();
+
+export default new AuthStore(AppDispatcher);

@@ -202,4 +202,5 @@ class CardStore extends ReduceStore {
     }
   }
 }
+
 export default new CardStore(AppDispatcher);
