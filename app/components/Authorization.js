@@ -15,7 +15,7 @@ const Authorization = (allowedRoles) =>
                 if (allowedRoles.includes(role)) {
                     return <WrappedComponent {...this.props} />
                 } else {
-                    history.push('/login');
+                    history.push('/home');
                 }
             }
         }

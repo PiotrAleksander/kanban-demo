@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
 import 'babel-polyfill';
+import AuthStore from '../stores/AuthStore';
 
 const API_URL = 'http://localhost:3000/api';
 const API_HEADERS = {
@@ -9,10 +10,23 @@ const API_HEADERS = {
    * your middle name, your favorite animal, your superpower of choice...
    * An unique authorization will allow you to have your own environment for leads and tasks
    */
-  Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVhMDAxNjQ3NGM2MWMyMWVkNDE5ZGRlNSIsInVzZXJuYW1lIjoicGlvdHJlbCIsInNjb3BlIjoiYWRtaW4iLCJpYXQiOjE1MTA2Njg2NzksImV4cCI6MTUxMDY5NzQ3OX0.ZNN935mQIix9OQW-S8r1lSkKSp_eokH7QMQ-VZ7s58g'
+  Authorization: 'Bearer ' + AuthStore.jwt
 }
 
 let KanbanAPI = {
+  login(username, password) {
+    let credentials = {
+      username: username,
+      password: password
+    }
+    
+    return fetch(`${API_URL}/users/authenticate`, {
+      method: 'post',
+      body: JSON.stringify(credentials)
+    })
+      .then((response) => response.json())
+  },
+
   fetchCards() {
     return fetch(`${API_URL}/leads`, { headers: API_HEADERS })
       .then((response) => response.json())

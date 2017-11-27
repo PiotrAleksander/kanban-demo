@@ -7,6 +7,7 @@ import KanbanBoardContainer from './components/KanbanBoardContainer';
 import KanbanBoard from './components/KanbanBoard';
 import EditCard from './components/EditCard';
 import NewCard from './components/NewCard';
+import Home from './components/Home';
 
 const Consultant = Authorization(['consultant', 'advisor', 'manager']);
 const Advisor = Authorization(['advisor', 'manager']);
@@ -15,8 +16,9 @@ const Manager = Authorization(['manager']);
 render((
   <MuiThemeProvider>
     <Router history={createBrowserHistory()}>
+      <Route path="/" component={Home}/>
       <Route component={KanbanBoardContainer}>
-        <Route path="/" component={Advisor(KanbanBoard)}>
+        <Route path="/board" component={Advisor(KanbanBoard)}>
           <Route path="new" component={Consultant(NewCard)} />
           <Route path="edit/:card_id" component={Advisor(EditCard)} />
         </Route>

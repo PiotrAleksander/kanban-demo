@@ -18,7 +18,6 @@ class KanbanBoardContainer extends Component {
 
     return kanbanBoard;
   }
-
 }
 
 KanbanBoardContainer.getStores = () => ([CardStore]);
