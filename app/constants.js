@@ -5,6 +5,8 @@ export default {
   USER_LOGIN_SUCCESS: 'user login success',
   USER_LOGIN_ERROR: 'user login error',
 
+  IS_USER_LOGGED_IN: 'is user logged in',
+
   USER_LOGOUT: 'user logout',
 
   FETCH_CARDS: 'fetch cards',

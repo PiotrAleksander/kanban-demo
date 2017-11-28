@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import AuthStore from '../stores/AuthStore';
 
-const Authorization = (allowedRoles) =>
+export const Authorization = (allowedRoles) =>
     (WrappedComponent) => {
         return class WithAuthorization extends Component {
             constructor(props) {

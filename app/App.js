@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Router, Route } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
+import { Authorization } from './components/Authorization';
 import KanbanBoardContainer from './components/KanbanBoardContainer';
 import KanbanBoard from './components/KanbanBoard';
 import EditCard from './components/EditCard';

@@ -11,6 +11,12 @@ let AuthActionCreators = {
         }, { username, password });
     },
 
+    isLogged() {
+        AppDispatcher.dispatch({
+            type: constants.IS_USER_LOGGED_IN
+        });
+    },
+
     logout() {
         AppDispatcher.dispatch({
             type: constants.USER_LOGOUT
