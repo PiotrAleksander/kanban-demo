@@ -19,7 +19,7 @@ class AuthStore extends ReduceStore {
         return this._state.user.role;
     }
 
-    getFwt() {
+    getJwt() {
         return this._state.jwt;
     }
 
@@ -35,12 +35,16 @@ class AuthStore extends ReduceStore {
 
     reduce(state, action) {
         switch (action.actionType) {
+            case constants.IS_USER_LOGGED_IN:
+                return this.isLoggedIn();
+
             case constants.USER_LOGIN:
                 return update(this.getState(), {
                     loading: { $set: true }
                 });
 
             case constants.USER_LOGIN_SUCCESS:
+                $window.sessionStorage.accessToken = response.body.access_token;
                 return update(this.getState(), {
                     jwt: { $set: action.payload.response.jwt },
                     user: { $set: this.parseJwt() },

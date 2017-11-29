@@ -5,29 +5,25 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import AuthActionCreators from '../actions/AuthActionCreators';
 import AuthStore from '../stores/AuthStore';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
-
-const history = createBrowserHistory();
 
 class Home extends Component {
-  constructor(props) {
-      super(props);
-      this.state = { 
-        username: '',
-        password: '',
-        error: false
-      }
+  componentDidMount () {
+    if(this.isLoggedIn()){
+      this.props.history.push('/board');
+    }
   }
 
-  componentDidMount () {
-    AuthActionCreators.isLogged();
+  isLoggedIn () {
+    return AuthActionCreators.isLogged();
   }
 
   _onAuthChange(auth) {
     this.setState(auth);
 
     if(this.state.loggedIn){
-      history.push('/board');
+      this.props.history.push('/board');
+    } else {
+      this.props.history.push('/')
     }
   }
   

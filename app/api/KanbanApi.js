@@ -10,7 +10,7 @@ const API_HEADERS = {
    * your middle name, your favorite animal, your superpower of choice...
    * An unique authorization will allow you to have your own environment for leads and tasks
    */
-  Authorization: 'Bearer ' + AuthStore.jwt
+  Authorization: 'Bearer ' + AuthStore.getJwt()
 }
 
 let KanbanAPI = {
